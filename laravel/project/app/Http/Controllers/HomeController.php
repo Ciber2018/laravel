@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use	Illuminate\Database\Eloquent\Model;
-use App\Repositories\UserRepositoryInterface;
+use App\Interfaces\UserRepositoryInterface;
 
 
 class HomeController extends Controller
@@ -64,6 +64,14 @@ class HomeController extends Controller
       }
 
       return view('succes',['msg' => 'Hecho']);
+
+    }
+
+    public function reporte(){
+
+        $user_cards = \auth()->user()->cards;
+
+        return view('reporte',compact('user_cards'));
 
     }
 }

@@ -6,12 +6,12 @@
  * Time: 17:44
  */
 
-namespace App\Repositories;
+namespace App\API;
 
 use GuzzleHttp\Client;
 
 
-class Eventos implements EventosInterface
+class Eventos
 {
     protected $client;
 

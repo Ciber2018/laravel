@@ -3,8 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Repositories\EventosInterface;
-use App\Repositories\UserRepositoryInterface;
+use App\Interfaces\EventosAdapterInterface;
 
 class cronLoteria extends Command
 {
@@ -13,7 +12,7 @@ class cronLoteria extends Command
      *
      * @var string
      */
-    protected $signature = 'notify:finalizados';
+    protected $signature = 'command:finalizados';
 
     /**
      * The console command description.
@@ -22,19 +21,17 @@ class cronLoteria extends Command
      */
     protected $description = 'Command description';
 
-    protected $eventos;
-    protected $users;
+    protected $finalizados;
 
     /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct(EventosInterface $eventos, UserRepositoryInterface $users)
+    public function __construct(EventosAdapterInterface $finalizados)
     {
         parent::__construct();
-        $this->eventos = $eventos;
-        $this->users = $users;
+        $this->finalizados = $finalizados;
     }
 
     /**
@@ -44,10 +41,7 @@ class cronLoteria extends Command
      */
     public function handle()
     {
-        //
-        $finalizados = $this->eventos->eventosFinalizados();
-        $usuarios = $this->users->allUsers();
-
-
+        $this->finalizados->UpdateExistingPivot();
+        echo "Hecho";
     }
 }

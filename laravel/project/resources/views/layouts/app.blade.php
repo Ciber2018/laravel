@@ -65,6 +65,8 @@
 
                                     <a class="dropdown-item" href="{{ route('evento_index') }}">Eventos Disponibles</a>
 
+                                    <a class="dropdown-item" href="{{ route('reporte') }}">Reporte</a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

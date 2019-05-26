@@ -34,3 +34,5 @@ Route::post('evento/seleccionados','EventoController@seleccionados')->name('sele
 Route::get('/atras',function (){
     return redirect()->back();
 })->name('back');
+
+Route::get('/reporte','HomeController@reporte')->name('reporte');

@@ -6,7 +6,7 @@
  * Time: 11:05
  */
 
-namespace App\Repositories;
+namespace App\Interfaces;
 
 
 

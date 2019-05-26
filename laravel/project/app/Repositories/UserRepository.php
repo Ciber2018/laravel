@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 
 use App\User;
+use App\Interfaces\UserRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 use	Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
@@ -25,6 +26,13 @@ class UserRepository implements UserRepositoryInterface
         //$username = User::where('id', $id)->first();
         $username = User::find($id);
         return $username->username;
+    }
+
+    public function getUserByID($id)
+    {
+        // TODO: Implement getUserByID() method.
+        $user = User::find($id);
+        return $user;
     }
 
     public function editUserByID($name,$pass)
@@ -52,6 +60,13 @@ class UserRepository implements UserRepositoryInterface
     public function allUsers()
     {
         // TODO: Implement allUsers() method.
-        return User::all();
+        $users = User::all();
+        return $users;
+    }
+
+    public function getReporte()
+    {
+        // TODO: Implement getReporte() method.
+
     }
 }

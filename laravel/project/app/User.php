@@ -48,7 +48,7 @@ class User extends Authenticatable
 
 
     public function cards(){
-        return $this->hasMany('App\Card');
+        return $this->belongsToMany('App\Card')->withPivot('status');
     }
 
 }

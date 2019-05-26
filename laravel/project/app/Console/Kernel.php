@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Jobs\ActualizarStatus;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,6 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        'App\Console\Commands\cronLoteria'
     ];
 
     /**
@@ -26,6 +28,13 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        //$schedule->command('job:finalizados --force')->daily();
+
+        $schedule->job(new ActualizarStatus)->everyFiveMinutes();
+        /**$schedule->call(function () {
+            dispatch(new ActualizarStatus());
+        })->everyMinute();*/
     }
 
     /**

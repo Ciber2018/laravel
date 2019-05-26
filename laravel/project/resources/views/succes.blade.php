@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="alert alert-success">
-                <strong>Success!</strong> {{ $msg }} <a href="{{ route('home') }}" class="alert-link">Atras</a>
+                <strong>Success!</strong> {{ $msg }}</a>
             </div>
         </div>
     </div>
